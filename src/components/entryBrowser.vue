@@ -9,7 +9,7 @@
             <h2>{{entry.lemma}}</h2>
             <h5>{{entry.pos.valueFull}}</h5>
             <p>{{arrayToString(entry.meanings)}}</p>
-            <small>paradygmat: <span class="text-monospace">{{entry.paradigm}}</span></small>
+            <!-- <small>paradygmat: <span class="text-monospace">{{entry.paradigm}}</span></small> -->
 
             <entryTable :tables="entry.tables"/>
 

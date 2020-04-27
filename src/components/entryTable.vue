@@ -17,22 +17,47 @@
           <b-card-body>
             <b-card-text>
               
+              <table class="table">
+
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th scope="col" v-for="header in table.columnHeaders" :key="header.id">
+                    {{header.name}} {{header.valueFull}}
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr v-for="row in table.rows" :key="row.id">
+                    <th>
+                      {{row.rowCategory.valueAbbr}}<span v-if="row.rowCategory.name === 'osoba'" >. {{row.rowCategory.name}}</span>
+                    </th>
+                    <td v-for="cell in row.columns" :key="cell.id">
+                      <entryCell :cell="cell" />
+                    </td>
+                  </tr>
+                </tbody>
+
+              </table>
+
+
               <!-- <b-table small striped hover :items="table.rows" :fields="table.columnHeaders"> -->
-              <b-table small striped hover :items="rowConverter(table.rows)" :fields="headerConverter(table.columnHeaders)">
+              <!-- <b-table small striped hover :items="rowConverter(table.rows)" :fields="headerConverter(table.columnHeaders)"> -->
                 
-                <template v-slot:cell(_0)="row">
+                <!-- <template v-slot:cell(_0)="row">
                   <entryCell :cell="row"/>
                 </template>
 
                 <template v-slot:cell(_1)="row">
-                  <entryCell :cell="row"/>
-                </template>
-
+  <entryCell :cell="row" />
+</template> -->
+<!-- 
                 <template v-slot:cell(_2)="row">
                   <entryCell :cell="row"/>
-                </template>
+                </template> -->
 
-              </b-table>
+              <!-- </b-table> -->
 
             </b-card-text>
           </b-card-body>
@@ -72,20 +97,20 @@ import entryCell from './entryCell.vue'
         let len = 0;
 
         res.push({
-          key:"_" + (0).toString(10),
-          label:"",
-          sortable:false,
-          catName: "",
-          catVal: ""
+          name: null,
+          valueAbbr: null,
+          valueFull: null,
+          description: null,
+          id: 0
         });
 
         for (index = 0, len = header.length; index < len; ++index) {
           res.push({
-            key: "_" + (index+1).toString(10),
-            label: header[index].valueAbbr,
-            sortable: false,
-            catName: header[index].name,
-            catVal: header[index].valueFull
+            id: index + 1,
+            name: header[index].name,
+            valueAbbr: header[index].valueAbbr,
+            valueFull: header[index].valueFull,
+            description: header[index].description
           });
         }
 
@@ -116,7 +141,6 @@ import entryCell from './entryCell.vue'
 </script>
 
 <style scoped lang="css">
-  .entryTable {
-
-  }
+.entryTable {
+}
 </style>

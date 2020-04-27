@@ -6,7 +6,7 @@
       <li v-for="word in related" :key="word.id">
         {{word.word}}
         <span v-for="category in word.categories" :key="category.id">
-          <categoryLabel :category="category.name" :description="category.valueFull" :value="category.valueAbbr"></categoryLabel>
+          <categoryLabel :name="category.name" :valueFull="category.valueFull" :valueAbbr="category.valueAbbr"></categoryLabel>
         </span>
       </li>
     </ul>
@@ -45,5 +45,4 @@ import categoryLabel from "./categoryLabel.vue"
 </script>
 
 <style scoped lang="css">
-  
 </style>
