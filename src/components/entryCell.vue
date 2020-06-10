@@ -1,5 +1,4 @@
 <template lang="html">
-
   <section class="entryCell">
     <div v-for="form in cell.forms" :key="form.id">
       {{form.word}}
@@ -8,34 +7,29 @@
       </span>
     </div>
   </section>
-
 </template>
 
 <script lang="js">
 import categoryLabel from "./categoryLabel.vue"
 
-  export default  {
-    name: 'entryCell',
-    components: {
-      categoryLabel
-    },
-    props: {
-      cell: {}
-    },
-    mounted () {
-
-    },
-    data () {
-      return {
-
-      }
-    },
-    methods: {
-
-    },
-    computed: {
-
+export default  {
+  name: 'entryCell',
+  components: {
+    categoryLabel
+  },
+  props: {
+    cell: {}
+  },
+  mounted () {
+  },
+  data () {
+    return {
     }
+  },
+  methods: {
+  },
+  computed: {
+  }
 }
 
 

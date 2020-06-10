@@ -1,14 +1,11 @@
 <template lang="html">
-
-  <span class="badge badge-pill" :style="colorChanger(name)"     
-    v-b-popover.hover.top="valueFull" :title="name">
+  <span class="badge badge-pill" :style="colorChanger(name)"
+    v-b-popover.hover.top="valueFull + getDescription(description)" :title="name">
       {{valueAbbr}}
     </span>
-
 </template>
 
 <script lang="js">
-
   export default  {
     name: 'categoryLabel',
     props: {
@@ -18,14 +15,16 @@
       valueAbbr: { type: String }
     },
     mounted () {
-
     },
     data () {
       return {
-
       }
     },
-    methods: {  
+    methods: {
+      getDescription: function(description) {
+        if (description == null || description == "") return "";
+        else return " (" + description + ")";
+      },
       colorChanger: function(catName) {
         if (catName==='rodzaj') return 'background-color:green;color:white';
         else if (catName==='deprecjatywność') return 'background-color:red;color:white';
@@ -41,15 +40,12 @@
         else return 'color:black;border-color:#2196F3;border:1px solid';
       }
     },
-    computed: {
-      
+    computed: {      
     }
 }
 
-
 </script>
-
-<style scoped lang="css">
+  <style scoped lang="css">
 .categoryLabel {
   align-items: center !important;
 }

@@ -1,5 +1,4 @@
 <template lang="html">
-
   <section class="entryRelated">
     <p>Homonimy i wyrazy spokrewnione:</p>
     <ul>
@@ -11,37 +10,30 @@
       </li>
     </ul>
   </section>
-
 </template>
 
 <script lang="js">
 import categoryLabel from "./categoryLabel.vue"
 
-  export default  {
-    name: 'entryRelated',
-    components: {
-      categoryLabel
-    },
-    props: {
-      related: {}
-    },
-    mounted () {
-
-    },
-    data () {
-      return {
-
-      }
-    },
-    methods: {
-
-    },
-    computed: {
-
+export default  {
+  name: 'entryRelated',
+  components: {
+    categoryLabel
+  },
+  props: {
+    related: {}
+  },
+  mounted () {
+  },
+  data () {
+    return {
     }
+  },
+  methods: {
+  },
+  computed: {
+  }
 }
-
-
 </script>
 
 <style scoped lang="css">

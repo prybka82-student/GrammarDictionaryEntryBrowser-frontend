@@ -1,16 +1,11 @@
 <template>
   <div id="app">
-
-    <b-jumbotron header-level="5" bg-variant="warning"  >
-      <template v-slot:header>ISGJP</template>
-      <template v-slot:lead>Inny słownik gramatyczny języka polskiego</template>
-      <!-- <hr class="my-24"/> -->
+    <b-jumbotron header-level="5" bg-variant="warning">
+      <template v-slot:header>NSGJP</template>
+      <template v-slot:lead>Nowy słownik gramatyczny języka polskiego</template>
     </b-jumbotron>
-
     <formInput @inputWord="updateQuery" />
-
     <entryBrowser :query="word" />
-
   </div>
 </template>
 
@@ -27,7 +22,7 @@ export default {
   data: function() {
     return {
       word: ""
-    }
+    };
   },
   methods: {
     updateQuery(value) {
@@ -54,9 +49,7 @@ export default {
 }
 
 .jumbotron {
-  margin-top:-30px;
-  height:180px;
+  margin-top: -30px;
+  height: 180px;
 }
-
-
 </style>
